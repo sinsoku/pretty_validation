@@ -83,6 +83,11 @@ irb(main):003:0> p user.errors.full_messages
 => ["Name can't be blank", "Age can't be blank", "Age is not a number"]
 ```
 
+## Supported versions
+
+- Ruby 2.1.x, 2.2.x
+- Rails 4+
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/sinsoku/pretty_validation.
