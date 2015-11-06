@@ -1,0 +1,19 @@
+AllCops:
+  DisplayCopNames: true
+
+Metrics/LineLength:
+  Max: 105
+
+Style/Documentation:
+  Enabled: false
+
+Lint/StringConversionInInterpolation:
+  Exclude:
+    # Refinements が文字列埋め込みで効かない
+    - 'lib/pretty_validation/validation.rb'
+
+Metrics/AbcSize:
+  Max: 17
+
+Lint/HandleExceptions:
+  Enabled: false
