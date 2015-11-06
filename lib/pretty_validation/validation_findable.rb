@@ -2,7 +2,7 @@ module PrettyValidation
   module ValidationFindable
     extend ActiveSupport::Concern
 
-    class_methods do
+    module ClassMethods
       def inherited(kls)
         super(kls)
         begin
