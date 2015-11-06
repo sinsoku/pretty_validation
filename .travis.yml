@@ -1,6 +1,11 @@
 language: ruby
 rvm:
-  - 2.2.3
+  - 2.1
+  - 2.2
+gemfile:
+  - gemfiles/rails_40.gemfile
+  - gemfiles/rails_41.gemfile
+  - gemfiles/rails_42.gemfile
 before_install: gem install bundler -v 1.10.6
 notifications:
   email: false
