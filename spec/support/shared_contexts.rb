@@ -1,4 +1,4 @@
-shared_context 'add_column' do |column, type, options={}|
+shared_context 'add_column' do |column, type, options = {}|
   klass = Class.new(ActiveRecord::Migration) do
     class_eval <<-EOF
       def self.up
@@ -14,7 +14,7 @@ shared_context 'add_column' do |column, type, options={}|
   after { klass.down }
 end
 
-shared_context 'add_index' do |column, options={}|
+shared_context 'add_index' do |column, options = {}|
   klass = Class.new(ActiveRecord::Migration) do
     class_eval <<-EOF
       def self.up

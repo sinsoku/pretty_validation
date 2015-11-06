@@ -45,6 +45,7 @@ end
     end
 
     private
+
     def validations
       sexy_validations + uniq_validations
     end

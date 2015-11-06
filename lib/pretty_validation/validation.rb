@@ -22,16 +22,16 @@ module PrettyValidation
         column_name = x.columns[0]
         scope = x.columns[1..-1].map(&:to_sym)
         options = if scope.size > 1
-                    {scope: scope}
+                    { scope: scope }
                   elsif scope.size == 1
-                    {scope: scope[0]}
+                    { scope: scope[0] }
                   end
 
         Validation.new('validates_uniqueness_of', column_name.to_sym, options)
       end
     end
 
-    def initialize(method_name, column_name, options=nil)
+    def initialize(method_name, column_name, options = nil)
       @method_name = method_name
       @column_name = column_name
       @options = options

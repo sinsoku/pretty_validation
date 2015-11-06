@@ -22,7 +22,7 @@ module PrettyValidation
           '    validates_uniqueness_of :name, scope: :age',
           '    validates_uniqueness_of :name, scope: [:age, :admin]',
           '  end',
-          'end',
+          'end'
         ].join("\n")
         is_expected.to eq expected
       end
