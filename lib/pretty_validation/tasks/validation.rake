@@ -11,6 +11,9 @@ end
 namespace :db do
   task :_dump do
     original_db_dump.invoke
+    # Allow this task to be called as many times as required. An example is the
+    # migrate:redo task, which calls other two internally that depend on this one.
+    original_db_dump.reenable
     PrettyValidation::Renderer.generate
   end
 end
