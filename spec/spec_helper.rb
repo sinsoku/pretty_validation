@@ -3,6 +3,7 @@ require 'rails'
 require 'active_record'
 require 'active_support'
 require 'pretty_validation'
+require 'pretty_validation/renderer'
 require 'fake_app'
 
 # load support/*

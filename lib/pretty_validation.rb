@@ -1,7 +1,3 @@
-require 'pretty_validation/monkey/new_hash_syntax'
 require 'pretty_validation/railtie'
-require 'pretty_validation/renderer'
-require 'pretty_validation/schema'
-require 'pretty_validation/validation'
 require 'pretty_validation/validation_findable'
 require 'pretty_validation/version'

@@ -1,3 +1,5 @@
+require 'pretty_validation/monkey/new_hash_syntax'
+
 module PrettyValidation
   class Validation
     using NewHashSyntax
