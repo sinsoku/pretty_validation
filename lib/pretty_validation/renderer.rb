@@ -8,7 +8,10 @@ module PrettyValidation
 
     def self.generate
       FileUtils.mkdir_p validations_path unless File.directory? validations_path
-      Schema.table_names.each { |t| new(t).write! }
+      Schema.table_names.each do |t|
+        r = new t
+        r.write! unless r.validations.empty?
+      end
     end
 
     def initialize(table_name)
@@ -44,11 +47,11 @@ end
       File.write(file_path, render)
     end
 
-    private
-
     def validations
       sexy_validations + uniq_validations
     end
+
+    private
 
     def sexy_validations
       Validation.sexy_validations(table_name)
