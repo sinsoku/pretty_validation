@@ -1,5 +1,6 @@
 # PrettyValidation
 
+[![Gem Version](https://badge.fury.io/rb/pretty_validation.svg)](https://badge.fury.io/rb/pretty_validation)
 [![Build Status](https://travis-ci.org/sinsoku/pretty_validation.svg?branch=master)](https://travis-ci.org/sinsoku/pretty_validation)
 
 **"Make validations DRY"**
