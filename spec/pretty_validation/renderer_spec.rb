@@ -11,19 +11,19 @@ module PrettyValidation
       include_context 'add_index', [:name, :age, :admin], unique: true
       subject { Renderer.new('users').render }
       it do
-        expected = [
-          'module UserValidation',
-          '  extend ActiveSupport::Concern',
-          '',
-          '  included do',
-          '    validates :name, presence: true',
-          '    validates :age, numericality: true',
-          '    validates_uniqueness_of :name',
-          '    validates_uniqueness_of :name, scope: :age',
-          '    validates_uniqueness_of :name, scope: [:age, :admin]',
-          '  end',
-          'end'
-        ].join("\n")
+        expected = <<-EOF
+module UserValidation
+  extend ActiveSupport::Concern
+
+  included do
+    validates :name, presence: true
+    validates :age, numericality: true
+    validates_uniqueness_of :name
+    validates_uniqueness_of :name, scope: :age
+    validates_uniqueness_of :name, scope: [:age, :admin]
+  end
+end
+        EOF
         is_expected.to eq expected
       end
     end

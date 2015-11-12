@@ -22,8 +22,7 @@ module PrettyValidation
     end
 
     def render
-      # Delete the last new line
-      <<-EOF[0..-2]
+      <<-EOF
 module #{module_name}
   extend ActiveSupport::Concern
 
