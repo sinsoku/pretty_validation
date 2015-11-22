@@ -2,6 +2,8 @@
 
 [![Gem Version](https://badge.fury.io/rb/pretty_validation.svg)](https://badge.fury.io/rb/pretty_validation)
 [![Build Status](https://travis-ci.org/sinsoku/pretty_validation.svg?branch=master)](https://travis-ci.org/sinsoku/pretty_validation)
+[![Code Climate](https://codeclimate.com/github/sinsoku/pretty_validation/badges/gpa.svg)](https://codeclimate.com/github/sinsoku/pretty_validation)
+[![Test Coverage](https://codeclimate.com/github/sinsoku/pretty_validation/badges/coverage.svg)](https://codeclimate.com/github/sinsoku/pretty_validation/coverage)
 
 **"Make validations DRY"**
 
