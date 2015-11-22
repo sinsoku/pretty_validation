@@ -3,7 +3,7 @@ original_db_dump = tasks.delete 'db:_dump'
 
 namespace :validation do
   desc 'Generate validations from database schema'
-  task :generate do
+  task generate: :environment do
     require 'pretty_validation/renderer'
     PrettyValidation::Renderer.generate
   end
