@@ -1,3 +1,4 @@
+require 'pretty_validation/config'
 require 'pretty_validation/schema'
 require 'pretty_validation/validation'
 
@@ -10,6 +11,8 @@ module PrettyValidation
     end
 
     def self.generate
+      return unless PrettyValidation.config.auto_generate
+
       FileUtils.mkdir_p validations_path unless File.directory? validations_path
       Schema.table_names.each do |t|
         r = new t
