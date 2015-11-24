@@ -2,10 +2,11 @@ tasks = Rake.application.instance_variable_get '@tasks'
 original_db_dump = tasks.delete 'db:_dump'
 
 namespace :validation do
-  desc 'Generate validations from database schema'
+  desc 'Generate validations from database schema (options: DRY_RUN=false)'
   task generate: :environment do
     require 'pretty_validation/renderer'
-    PrettyValidation::Renderer.generate
+    dry_run = %w(true 1 on).include? ENV['DRY_RUN']
+    PrettyValidation::Renderer.generate dry_run: dry_run
   end
 end
 
