@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/sinsoku/pretty_validation.svg?branch=master)](https://travis-ci.org/sinsoku/pretty_validation)
 [![Code Climate](https://codeclimate.com/github/sinsoku/pretty_validation/badges/gpa.svg)](https://codeclimate.com/github/sinsoku/pretty_validation)
 [![Test Coverage](https://codeclimate.com/github/sinsoku/pretty_validation/badges/coverage.svg)](https://codeclimate.com/github/sinsoku/pretty_validation/coverage)
+[![Inline docs](http://inch-ci.org/github/sinsoku/pretty_validation.svg?branch=master)](http://inch-ci.org/github/sinsoku/pretty_validation)
 
 **"Make validations DRY"**
 
