@@ -24,3 +24,6 @@ class CreateAllTables < ActiveRecord::Migration
   end
 end
 CreateAllTables.up
+
+# Quiet logs
+ActiveRecord::Migration.verbose = false
