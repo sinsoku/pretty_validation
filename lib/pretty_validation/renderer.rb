@@ -10,14 +10,22 @@ module PrettyValidation
       Rails.root.join('app', 'validations')
     end
 
-    def self.generate
-      return unless PrettyValidation.config.auto_generate
+    def self.generate(dry_run: false)
+      if generate?(dry_run) && !File.directory?(validations_path)
+        FileUtils.mkdir_p validations_path
+      end
 
-      FileUtils.mkdir_p validations_path unless File.directory? validations_path
       Schema.table_names.each do |t|
         r = new t
-        r.write! unless r.validations.empty?
+        next if r.validations.empty?
+
+        puts r.messages
+        r.write! if generate?(dry_run)
       end
+    end
+
+    def self.generate?(dry_run)
+      PrettyValidation.config.auto_generate && !dry_run
     end
 
     def initialize(table_name)
@@ -25,7 +33,7 @@ module PrettyValidation
     end
 
     def render
-      <<-EOF
+      @render ||= <<-EOF
 module #{module_name}
   extend ActiveSupport::Concern
 
@@ -56,6 +64,15 @@ end
       sexy_validations + uniq_validations
     end
 
+    def messages
+      [
+        announce('generating'),
+        render,
+        announce('generated'),
+        "\n"
+      ].join("\n")
+    end
+
     private
 
     def sexy_validations
@@ -64,6 +81,12 @@ end
 
     def uniq_validations
       Validation.unique_validations(table_name)
+    end
+
+    def announce(message)
+      text = "#{module_name}: #{message}"
+      length = [0, 75 - text.length].max
+      "== #{text} #{'=' * length}"
     end
   end
 end
