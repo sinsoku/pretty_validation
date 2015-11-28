@@ -1,5 +1,3 @@
-require 'rails'
-
 module PrettyValidation
   class Railtie < Rails::Railtie
     rake_tasks do
@@ -9,6 +7,7 @@ module PrettyValidation
     initializer 'pretty_validation' do
       if PrettyValidation.config.auto_injection
         ActiveSupport.on_load :active_record do
+          require 'pretty_validation/validation_findable'
           ActiveRecord::Base.include PrettyValidation::ValidationFindable
         end
       end
