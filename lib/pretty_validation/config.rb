@@ -11,5 +11,6 @@ module PrettyValidation
     include ActiveSupport::Configurable
 
     config_accessor(:auto_generate) { true }
+    config_accessor(:auto_injection) { true }
   end
 end
