@@ -70,7 +70,7 @@ end
         render,
         announce('generated'),
         "\n"
-      ].join("\n")
+      ].join
     end
 
     private
@@ -86,7 +86,7 @@ end
     def announce(message)
       text = "#{module_name}: #{message}"
       length = [0, 75 - text.length].max
-      "== #{text} #{'=' * length}"
+      "== #{text} #{'=' * length}\n"
     end
   end
 end
