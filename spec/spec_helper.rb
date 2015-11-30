@@ -16,7 +16,10 @@ end
 require 'active_record'
 require 'active_support'
 require 'pretty_validation'
-require 'pretty_validation/renderer'
+# for generators
+require 'rails/generators/test_case'
+require 'generators/validation/validation_generator'
+
 require 'fake_app'
 
 # load support/*
