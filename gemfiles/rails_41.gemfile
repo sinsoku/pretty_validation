@@ -4,4 +4,4 @@ gem 'rails', '~> 4.1.0'
 
 gemspec :path => '../'
 
-gem 'simplecov', require: false
+gem 'codecov', require: false
