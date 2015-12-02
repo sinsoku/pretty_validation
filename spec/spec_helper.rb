@@ -13,7 +13,7 @@ require 'active_record'
 require 'active_support'
 require 'pretty_validation'
 # for generators
-require 'rails/generators/test_case'
+require 'generator_spec'
 require 'generators/validation/validation_generator'
 
 require 'fake_app'

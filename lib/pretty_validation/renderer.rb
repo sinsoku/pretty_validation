@@ -7,7 +7,7 @@ module PrettyValidation
     attr_reader :table_name
 
     def self.validations_path
-      Rails.root.join('app', 'validations')
+      File.join('app', 'validations')
     end
 
     def self.generate(dry_run: false)
@@ -53,7 +53,7 @@ end
     end
 
     def file_path
-      Renderer.validations_path.join(file_name)
+      File.join(Renderer.validations_path, file_name)
     end
 
     def write!
