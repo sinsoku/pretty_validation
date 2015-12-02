@@ -19,7 +19,6 @@ module PrettyValidation
         r = new t
         next if r.validations.empty?
 
-        puts r.messages
         r.write! if generate?(dry_run)
       end
     end
