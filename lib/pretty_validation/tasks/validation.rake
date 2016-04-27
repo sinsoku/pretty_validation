@@ -17,7 +17,9 @@ namespace :db do
     # migrate:redo task, which calls other two internally that depend on this one.
     original_db_dump.reenable
 
-    require 'pretty_validation/renderer'
-    PrettyValidation::Renderer.generate
+    if PrettyValidation.config.auto_generate
+      require 'pretty_validation/renderer'
+      PrettyValidation::Renderer.generate
+    end
   end
 end
