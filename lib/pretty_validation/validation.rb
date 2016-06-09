@@ -14,6 +14,7 @@ module PrettyValidation
         options = {}
         options[:presence] = true unless column.null
         options[:numericality] = true if column.type == :integer
+        options[:allow_nil] = true if column.null && (column.type == :integer)
 
         Validation.new('validates', column.name.to_sym, options) if options.present?
       end.compact
