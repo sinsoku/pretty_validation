@@ -30,6 +30,11 @@ module PrettyValidation
                     { scope: scope[0] }
                   end
 
+        columns = Schema.columns(table_name)
+        if x.columns.all?{|colname| col = columns.detect{|c| c.name == colname}; col.null }
+          options ||= {}
+          options[:allow_nil] = true
+        end
         Validation.new('validates_uniqueness_of', column_name.to_sym, options)
       end
     end

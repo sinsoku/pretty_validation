@@ -10,6 +10,7 @@ module PrettyValidation
       include_context 'add_index', :name, unique: true
       include_context 'add_index', [:name, :age], unique: true
       include_context 'add_index', [:name, :age, :admin], unique: true
+      include_context 'add_index', :login_count, unique: true
       subject { Renderer.new('users').render }
       it do
         expected = <<-EOF
@@ -23,6 +24,7 @@ module UserValidation
     validates_uniqueness_of :name
     validates_uniqueness_of :name, scope: :age
     validates_uniqueness_of :name, scope: [:age, :admin]
+    validates_uniqueness_of :login_count, allow_nil: true
   end
 end
         EOF
