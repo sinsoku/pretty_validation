@@ -31,7 +31,7 @@ module PrettyValidation
                   end
 
         columns = Schema.columns(table_name)
-        if x.columns.all?{|colname| col = columns.detect{|c| c.name == colname}; col.null }
+        if x.columns.any?{|colname| col = columns.detect{|c| c.name == colname}; col.null }
           options ||= {}
           options[:allow_nil] = true
         end
