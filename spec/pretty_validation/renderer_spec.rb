@@ -22,8 +22,8 @@ module UserValidation
     validates :age, numericality: true, allow_nil: true
     validates :login_count, numericality: true, allow_nil: true
     validates_uniqueness_of :name
-    validates_uniqueness_of :name, scope: :age
-    validates_uniqueness_of :name, scope: [:age, :admin]
+    validates_uniqueness_of :name, scope: :age, allow_nil: true
+    validates_uniqueness_of :name, scope: [:age, :admin], allow_nil: true
     validates_uniqueness_of :login_count, allow_nil: true
   end
 end
