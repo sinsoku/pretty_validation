@@ -7,6 +7,7 @@ module PrettyValidation
       include_context 'add_column', :age, :integer
       include_context 'add_column', :login_count, :integer, null: true, default: 0
       include_context 'add_column', :admin, :boolean
+      include_context 'add_column', :marked, :boolean, null: false, default: false
       include_context 'add_index', :name, unique: true
       include_context 'add_index', [:name, :age], unique: true
       include_context 'add_index', [:name, :age, :admin], unique: true
@@ -21,6 +22,7 @@ module UserValidation
     validates :name, presence: true
     validates :age, numericality: true, allow_nil: true
     validates :login_count, numericality: true, allow_nil: true
+    # validates :marked, presence: true
     validates_uniqueness_of :name
     validates_uniqueness_of :name, scope: :age, allow_nil: true
     validates_uniqueness_of :name, scope: [:age, :admin], allow_nil: true
