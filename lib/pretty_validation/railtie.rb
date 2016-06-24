@@ -4,7 +4,7 @@ module PrettyValidation
       load 'pretty_validation/tasks/validation.rake'
     end
 
-    initializer 'pretty_validation' do
+    config.to_prepare do
       if PrettyValidation.config.auto_injection
         ActiveSupport.on_load :active_record do
           require 'pretty_validation/validation_findable'
