@@ -24,7 +24,7 @@ module PrettyValidation
     end
 
     def self.generate?(dry_run)
-      PrettyValidation.config.auto_generate && !dry_run
+      !dry_run
     end
 
     def initialize(table_name)
