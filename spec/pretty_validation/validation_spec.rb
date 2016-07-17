@@ -9,10 +9,16 @@ module PrettyValidation
         it { is_expected.to include build('validates', :name, presence: true) }
       end
 
-      context 'column type is integer' do
+      context 'column type is nullable integer' do
         include_context 'add_column', :age, :integer
         subject { Validation.sexy_validations('users') }
-        it { is_expected.to include build('validates', :age, numericality: true) }
+        it { is_expected.to include build('validates', :age, numericality: true, allow_nil: true) }
+      end
+
+      context 'column type is not null integer' do
+        include_context 'add_column', :login_count, :integer, null: false, default: 0
+        subject { Validation.sexy_validations('users') }
+        it { is_expected.to include build('validates', :login_count, presence: true, numericality: true) }
       end
     end
 
