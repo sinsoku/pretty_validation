@@ -5,9 +5,9 @@ module FakeApp
   class Application < Rails::Application
     config.secret_token = [*'A'..'z'].join
     config.session_store :cookie_store, key: '_myapp_session'
-    config.active_support.deprecation = :log
     config.eager_load = false
     config.root = File.dirname(__FILE__)
+    config.logger = Logger.new STDOUT
   end
 end
 FakeApp::Application.initialize!
