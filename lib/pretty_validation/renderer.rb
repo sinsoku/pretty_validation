@@ -1,7 +1,3 @@
-require 'pretty_validation/config'
-require 'pretty_validation/schema'
-require 'pretty_validation/validation'
-
 module PrettyValidation
   class Renderer
     attr_reader :table_name

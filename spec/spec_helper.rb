@@ -9,14 +9,9 @@ if ENV['CI'] == 'true'
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
 
-require 'active_record'
-require 'active_support'
 require 'pretty_validation'
-# for generators
-require 'generator_spec'
-require 'generators/validation/validation_generator'
-
 require 'fake_app'
+require 'generator_spec'
 
 # load support/*
 Dir[File.expand_path('../support/**/*.rb', __FILE__)].each { |f| require f }

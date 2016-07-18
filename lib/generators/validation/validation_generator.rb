@@ -1,5 +1,3 @@
-require 'pretty_validation/renderer'
-
 class ValidationGenerator < Rails::Generators::NamedBase
   # Require to read a USAGE file
   source_root File.expand_path('../templates', __FILE__)
