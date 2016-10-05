@@ -13,8 +13,16 @@ module PrettyValidation
       columns.map do |column|
         options = {}
         options[:presence] = true unless column.null
-        options[:numericality] = true if column.type == :integer
-        options[:allow_nil] = true if column.null && (column.type == :integer)
+
+        case column.type
+        when :integer
+          options[:numericality] = true
+          options[:allow_nil] = true if column.null
+        when :boolean
+          options.delete(:presence)
+          options[:inclusion] = [true, false]
+          options[:allow_nil] = true if column.null
+        end
 
         Validation.new('validates', column.name.to_sym, options) if options.present?
       end.compact
