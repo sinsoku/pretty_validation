@@ -11,6 +11,7 @@ module PrettyValidation
       columns = columns.reject { |x| x.name.in? %w(id created_at updated_at) }
 
       columns.map do |column|
+        next if PrettyValidation.config.ignored_columns.include?("#{table_name}.#{column.name}")
         options = {}
         options[:presence] = true unless column.null
         options[:numericality] = true if column.type == :integer

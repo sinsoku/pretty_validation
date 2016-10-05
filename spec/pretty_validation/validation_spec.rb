@@ -19,6 +19,11 @@ module PrettyValidation
         include_context 'add_column', :login_count, :integer, null: false, default: 0
         subject { Validation.sexy_validations('users') }
         it { is_expected.to include build('validates', :login_count, presence: true, numericality: true) }
+
+        context 'column is ignored' do
+          before{ allow(PrettyValidation.config).to receive(:ignored_columns).and_return(['users.login_count']) }
+          it { is_expected.to be_empty }
+        end
       end
     end
 
