@@ -20,6 +20,7 @@ module UserValidation
     validates :name, presence: true
     validates :age, numericality: true, allow_nil: true
     validates :login_count, presence: true, numericality: true
+    validates :admin, inclusion: [true, false]
     validates_uniqueness_of :name
     validates_uniqueness_of :name, scope: :age
     validates_uniqueness_of :name, scope: [:age, :admin]
