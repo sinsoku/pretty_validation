@@ -19,7 +19,9 @@ module PrettyValidation
           options[:numericality] = true
           options[:allow_nil] = true if column.null
         when :boolean
+          options.delete(:presence)
           options[:inclusion] = [true, false]
+          options[:allow_nil] = true if column.null
         end
 
         Validation.new('validates', column.name.to_sym, options) if options.present?
