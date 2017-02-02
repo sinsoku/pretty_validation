@@ -16,9 +16,9 @@ module PrettyValidation
       end
 
       context 'column type is not null integer' do
-        include_context 'add_column', :login_count, :integer, null: false, default: 0
+        include_context 'add_column', :login_count, :integer, null: true, default: 0
         subject { Validation.sexy_validations('users') }
-        it { is_expected.to include build('validates', :login_count, presence: true, numericality: true) }
+        it { is_expected.to include build('validates', :login_count, numericality: true, allow_nil: true) }
       end
     end
 
@@ -32,8 +32,8 @@ module PrettyValidation
       subject { Validation.unique_validations('users') }
 
       it { is_expected.to include build('validates_uniqueness_of', :name) }
-      it { is_expected.to include build('validates_uniqueness_of', :name, scope: :age) }
-      it { is_expected.to include build('validates_uniqueness_of', :name, scope: [:age, :admin]) }
+      it { is_expected.to include build('validates_uniqueness_of', :name, scope: :age, allow_nil: true) }
+      it { is_expected.to include build('validates_uniqueness_of', :name, scope: [:age, :admin], allow_nil: true) }
     end
 
     describe '#to_s' do
