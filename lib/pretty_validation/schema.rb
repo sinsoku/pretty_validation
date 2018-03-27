@@ -3,7 +3,7 @@ module PrettyValidation
     def self.table_names
       ActiveRecord::Base
         .connection.tables
-        .delete_if { |t| t == ActiveRecord::SchemaMigration.table_name }
+        .delete_if { |t| t == ActiveRecord::SchemaMigration.table_name || t == 'ar_internal_metadata' }
     end
 
     def self.columns(table_name)
